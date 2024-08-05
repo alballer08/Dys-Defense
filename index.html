@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption and Decryption</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <center><img src="logo.png" height="90px" width="400px"></center>
+        <label for="text-input" id="text-font"><b>Text:</b></label>
+        <textarea id="text-input" rows="4"></textarea>
+        
+        <label for="key-input" id="text-font">Key:</label>
+        <input type="number" id="key-input" value="0">
+        
+        <div class="crypt_buttons">
+            <button class="btn window_slide" onclick="encrypt()">Encrypt</button>
+            <button class="btn window_slide" onclick="decrypt()">Decrypt</button>
+        </div>
+        
+        <label for="result-output" id="text-font"><b>Results:</b></label>
+        <textarea id="result-output" rows="4" readonly></textarea>
+
+        <div class="clear_button">
+            <center><button class="btn2 window_slide" id="clear-btn">Clear</button></center>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
