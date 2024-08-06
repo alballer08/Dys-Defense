@@ -42,3 +42,24 @@ document.getElementById('clear-btn').addEventListener('click', function() {
     document.getElementById('key-input').value = 0;
     //resets key value
 });
+
+function copyText() {
+    // Get the text area element
+    var resultOutput = document.getElementById('result-output');
+    
+    // Select the text
+    resultOutput.select();
+    resultOutput.setSelectionRange(0, 99999); // For mobile devices
+    
+    // Copy the text to the clipboard
+    document.execCommand('copy');
+    
+    // Change the button text to "Copied" and the icon to a check mark
+    var copyButton = document.querySelector('.copy-btn');
+    copyButton.innerHTML = '<i class="fas fa-check"></i> Copied';
+
+    // Reset the button text and icon after 2 seconds
+    setTimeout(function() {
+        copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy Text';
+    }, 2000);
+}
