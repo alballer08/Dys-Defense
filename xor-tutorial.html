@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dys Defense - XOR Cipher Tutorial</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="xor.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="home.html"><img src="logo.png" alt="Logo" class="logo"></a>
+            <nav class="header-nav">
+                <a href="lab.html" class="nav-link">LAB</a>
+                <a href="tutorials.html" class="nav-link">TUTORIALS</a>
+                <a href="evaluator.html" class="nav-link">EVALUATOR</a>
+            </nav>
+            <a href="support.html" class="support-link">Support</a>
+        </div>
+    </header>
+
+    <main>
+            <div class="cipher-container">
+                <h1>XOR Cipher Tutorial</h1>
+
+                <div class="code-section">
+                    <h2>HTML Code - xor.html</h2>
+                    <textarea class="form-control code-textarea" rows="10" readonly>
+&lt;!-- This is the HTML structure of a basic XOR Cipher implementation --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;XOR Cipher&lt;/title&gt;
+    &lt;link rel="stylesheet" href="xor.css"&gt;
+    &lt;script src="xor.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Main container for the cipher --&gt;
+    &lt;div class=&quot;cipher-container&quot;&gt;
+        &lt;!-- Title of the cipher --&gt;
+        &lt;h1&gt;XOR Cipher&lt;/h1&gt;
+
+        &lt;!-- Form where users can input text and a key --&gt;
+        &lt;form id=&quot;xor-form&quot;&gt;
+            &lt;!-- Textarea for user input --&gt;
+            &lt;textarea id=&quot;xor-text&quot; rows=&quot;3&quot; placeholder=&quot;Enter text here&quot; required&gt;&lt;/textarea&gt;
+
+            &lt;!-- Input for the key used in encryption/decryption --&gt;
+            &lt;input type=&quot;text&quot; id=&quot;xor-key&quot; placeholder=&quot;Enter key here&quot; required&gt;
+            
+            &lt;!-- Buttons to trigger encryption and decryption --&gt;
+            &lt;button type=&quot;button&quot; onclick=&quot;encryptXOR()&quot;&gt;Encrypt&lt;/button&gt;
+            &lt;button type=&quot;button&quot; onclick=&quot;decryptXOR()&quot;&gt;Decrypt&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;!-- Display the result of the encryption/decryption --&gt;
+        &lt;textarea id=&quot;xor-result&quot; rows=&quot;3&quot; readonly&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+                </div>
+
+                <div class="code-section">
+                    <h2>JavaScript Code - xor.js</h2>
+                    <textarea id="js-code" class="form-control code-textarea" rows="10" readonly>
+// Function to encrypt text using the XOR cipher
+function encryptXOR() {
+    // Get the text input from the user
+    const text = document.getElementById('xor-text').value;
+    // Get the key input from the user
+    const key = document.getElementById('xor-key').value;
+    // Perform XOR encryption and display the result
+    document.getElementById('xor-result').value = xorCipher(text, key);
+}
+
+// Function to decrypt text using the XOR cipher
+function decryptXOR() {
+    // Get the text input from the user
+    const text = document.getElementById('xor-text').value;
+    // Get the key input from the user
+    const key = document.getElementById('xor-key').value;
+    // Perform XOR decryption and display the result (XORing again with the same key will decrypt the text)
+    document.getElementById('xor-result').value = xorCipher(text, key);
+}
+
+// Function to perform XOR encryption/decryption
+function xorCipher(text, key) {
+    // Initialize an empty string to store the result
+    let result = '';
+    // Loop through each character in the text
+    for (let i = 0; i < text.length; i++) {
+        // XOR each character's ASCII code with the corresponding character's ASCII code from the key
+        result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    // Return the final result string
+    return result;
+}</textarea>
+                </div>
+
+                <div class="code-section">
+                    <h2>CSS Code - xor.css</h2>
+                    <textarea id="css-code" class="form-control code-textarea" rows="10" readonly>
+/* Applies basic styling to the entire body of the webpage */
+body {
+    font-family: Arial, sans-serif; /* Sets the font for the text to Arial, with sans-serif as a fallback */
+    background-color: #f5f5f5; /* Sets a light gray background color for the entire page */
+    color: #333; /* Sets the text color to a dark gray for readability */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+}
+                        
+/* Styles the main container for the cipher */
+.cipher-container {
+    max-width: 600px; /* Limits the width of the container */
+    margin: 30px auto; /* Centers the container horizontally and adds margin */
+    padding: 20px; /* Adds padding inside the container */
+    background-color: #fff; /* Sets the background color to white */
+    border-radius: 8px; /* Rounds the corners of the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around the container */
+}
+
+/* Styles the h1 heading */
+h1 {
+    text-align: center; /* Centers the heading text horizontally */
+    margin-bottom: 20px; /* Adds a margin of 20px below the heading */
+    color: #007BFF; /* Sets the heading color to a blue shade */
+}
+
+/* Styles form groups */
+.form-group {
+    margin-bottom: 15px; /* Adds space below each form group */
+}
+
+/* Styles labels for form controls */
+label {
+    display: block; /* Makes the label a block-level element */
+    margin-bottom: 5px; /* Adds space below the label */
+    font-weight: bold; /* Makes the label text bold */
+}
+
+/* Styles text areas and input fields */
+textarea, input[type="text"] {
+    width: 100%; /* Ensures the textarea/input takes up the full width of its container */
+    padding: 10px; /* Adds padding inside the textarea/input */
+    border: 1px solid #ddd; /* Adds a border with a light gray color */
+    border-radius: 4px; /* Rounds the corners of the textarea/input */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+/* Styles buttons */
+button {
+    background-color: #007BFF; /* Sets the background color of the button */
+    color: #fff; /* Sets the text color to white */
+    border: none; /* Removes default border */
+    padding: 10px 20px; /* Adds padding inside the button */
+    border-radius: 4px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    font-size: 16px; /* Sets the font size of the button text */
+    margin-right: 10px; /* Adds space between buttons */
+}
+
+/* Styles button on hover */
+button:hover {
+    background-color: #0056b3; /* Changes background color on hover */
+}
+
+/* Styles the result group */
+.result-group {
+    margin-top: 20px; /* Adds space above the result group */
+}
+
+/* Styles the code textareas */
+.code-textarea {
+    background-color: #f8f9fa; /* Sets a light background color for code textareas */
+    border: 1px solid #ced4da; /* Adds a border with a light gray color */
+    font-family: monospace; /* Uses a monospace font for code */
+    white-space: pre; /* Preserves whitespace and line breaks */
+}</textarea>
+                </div>
+            </div>
+    </main>
+    
+    <footer class="py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <p class="footer-text">&copy; 2024 Dys Defense. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="home.html" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About</a>
+                <a href="support.html" class="footer-link">Support</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

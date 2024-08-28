@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dys Defense - Lab</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="home.html"><img src="logo.png" alt="Logo" class="logo"></a>
+            <nav class="header-nav">
+                <a href="lab.html" class="nav-link">LAB</a>
+                <a href="tutorials.html" class="nav-link">TUTORIALS</a>
+                <a href="evaluator.html" class="nav-link">EVALUATOR</a>
+            </nav>
+            <a href="support.html" class="support-link">Support</a>
+        </div>
+    </header>
+
+    <section class="intro-section py-4">
+        <h2 class="intro-title">Tutorials</h2>
+    </section>
+    <main>
+        <ul>
+            <li>
+                <h2>Atbash Cipher</h2>
+                <p>This tutorial will guide you step-by-step through the process of creating an Atbash cipher, an
+                    encryption technique where the alphabet is reversed to encode messages.</p>
+                <img src="atbash.png" alt="Atbash" class="img-fluid mb-3">
+                <button onclick="location.href='atbash-tutorial.html'" class="btn btn-primary">Learn Atbash Cipher</button>
+            </li>
+            <li>
+                <h2>Caesar Cipher</h2>
+                <p>
+                    This tutorial will walk you through each step of building a Caesar cipher, an encryption method
+                    that shifts the characters of the plaintext by a key value.</p>
+                <img src="caesar.png" alt="Caesar" class="img-fluid mb-3">
+                <button onclick="location.href='caesar-tutorial.html'" class="btn btn-primary">Learn Caesar Cipher</button>
+            </li>
+            <li>
+                <h2>Playfair Cipher</h2>
+                <p>This tutorial will walk you through creating a Playfair cipher, a method that encrypts messages by
+                    pairing letters and using a keyword-based grid.
+                </p>
+                <img src="playfair.png" alt="Playfair" class="img-fluid mb-3">
+                <button onclick="location.href='playfair-tutorial.html'" class="btn btn-primary">Learn Playfair Cipher</button>
+            </li>
+            <li>
+                <h2>Rail Fence Cipher</h2>
+                <p>
+                    This tutorial will guide you through creating a Rail Fence cipher, a technique that encrypts
+                    messages by arranging them in a zigzag pattern across multiple rows.</p>
+                <img src="railfence.png" alt="Railfence" class="img-fluid mb-3">
+                <button onclick="location.href='railfence-tutorial.html'" class="btn btn-primary">Learn Rail Fence Cipher</button>
+            </li>
+            <li>
+                <h2>Vigenère Cipher</h2>
+                <p>This tutorial will walk you through creating a Vigenère cipher, a method that uses a keyword to shift
+                    each letter of the plaintext by varying amounts for encryption.</p>
+                <img src="vigenere.png" alt="Vigenere" class="img-fluid mb-3">
+                <button onclick="location.href='vigenere-tutorial.html'" class="btn btn-primary">Learn Vigenère Cipher</button>
+            </li>
+            <li>
+                <h2>XOR Cipher</h2>
+                <p>This tutorial will guide you in building an XOR cipher, an encryption technique that uses a binary
+                    key to perform a bitwise exclusive OR operation on the plaintext.</p>
+                <img src="xor.png" alt="Xor" class="img-fluid mb-3">
+                <button onclick="location.href='xor-tutorial.html'" class="btn btn-primary">Learn XOR Cipher</button>
+            </li>
+        </ul>
+    </main>
+    
+    <footer class="py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <p class="footer-text">&copy; 2024 Dys Defense. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="home.html" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About</a>
+                <a href="support.html" class="footer-link">Support</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

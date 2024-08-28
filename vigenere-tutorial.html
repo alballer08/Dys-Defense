@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dys Defense - Vigenère Cipher Tutorial</title>
+    <!-- Linking Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Linking custom CSS for additional styling -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Linking JavaScript file for Vigenère cipher functionality -->
+    <script src="vigenere.js" defer></script>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header section with navigation links -->
+    <header class="py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo with link to home page -->
+            <a href="home.html"><img src="logo.png" alt="Logo" class="logo"></a>
+            <!-- Navigation menu -->
+            <nav class="header-nav">
+                <a href="lab.html" class="nav-link">LAB</a>
+                <a href="tutorials.html" class="nav-link">TUTORIALS</a>
+                <a href="evaluator.html" class="nav-link">EVALUATOR</a>
+            </nav>
+            <!-- Link to the support page -->
+            <a href="support.html" class="support-link">Support</a>
+        </div>
+    </header>
+
+    <!-- Main content area for the Vigenère cipher tutorial -->
+    <main>
+        <div class="cipher-container">
+            <h1>Vigenère Cipher Tutorial</h1>
+
+            <!-- Section for displaying HTML code -->
+            <div class="code-section">
+                <h2>HTML Code - vigenere.html</h2>
+                <textarea class="form-control code-textarea" rows="10" readonly>
+&lt;!-- This is the HTML structure of a basic Vigenère Cipher implementation --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Vigenère Cipher&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;vigenere.css&quot;&gt;
+    &lt;script src=&quot;vigenere.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Main container for the cipher --&gt;
+    &lt;div class=&quot;cipher-container&quot;&gt;
+        &lt;!-- Title of the cipher --&gt;
+        &lt;h1&gt;Vigenère Cipher&lt;/h1&gt;
+
+        &lt;!-- Form where users can input text and a key --&gt;
+        &lt;form id=&quot;vigenere-form&quot;&gt;
+            &lt;!-- Textarea for user input --&gt;
+            &lt;textarea id=&quot;vigenere-text&quot; rows=&quot;3&quot; placeholder=&quot;Enter text here&quot; required&gt;&lt;/textarea&gt;
+
+            &lt;!-- Input for the key used in encryption/decryption --&gt;
+            &lt;input type=&quot;text&quot; id=&quot;vigenere-key&quot; placeholder=&quot;Enter key here&quot; required&gt;
+            
+            &lt;!-- Buttons to trigger encryption and decryption --&gt;
+            &lt;button type=&quot;button&quot; onclick=&quot;encryptVigenere()&quot;&gt;Encrypt&lt;/button&gt;
+            &lt;button type=&quot;button&quot; onclick=&quot;decryptVigenere()&quot;&gt;Decrypt&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;!-- Display the result of the encryption/decryption --&gt;
+        &lt;textarea id=&quot;vigenere-result&quot; rows=&quot;3&quot; readonly&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+            </div>
+
+            <!-- Section for displaying JavaScript code -->
+            <div class="code-section">
+                <h2>JavaScript Code - vigenere.js</h2>
+                <textarea id="js-code" class="form-control code-textarea" rows="10" readonly>
+// Encrypt the text using the Vigenère cipher
+function encryptVigenere() {
+// Get the input text and key from the HTML form
+    const text = document.getElementById('vigenere-text').value;
+    const key = document.getElementById('vigenere-key').value;
+                        
+    // Encrypt the text using the Vigenère cipher
+    const result = vigenereCipher(text, key, 'encrypt');
+                        
+    // Display the encrypted result in the HTML form
+    document.getElementById('vigenere-result').value = result;
+}
+                    
+// Decrypt the text using the Vigenère cipher
+function decryptVigenere() {
+    // Get the input text and key from the HTML form
+    const text = document.getElementById('vigenere-text').value;
+    const key = document.getElementById('vigenere-key').value;
+                        
+    // Decrypt the text using the Vigenère cipher
+    const result = vigenereCipher(text, key, 'decrypt');
+                        
+    // Display the decrypted result in the HTML form
+    document.getElementById('vigenere-result').value = result;
+}
+                    
+// Function to perform the Vigenère cipher encryption/decryption
+function vigenereCipher(text, key, mode) {
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Define the alphabet
+    let result = ''; // Initialize the result string
+    let keyIndex = 0; // Initialize the key index for cycling through the key
+                    
+    // Loop through each character of the input text
+    for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const isLower = char === char.toLowerCase(); // Check if the character is lowercase
+    const charUpper = char.toUpperCase(); // Convert the character to uppercase for processing
+                    
+    // Check if the character is an alphabetic letter
+    if (alphabet.indexOf(charUpper) !== -1) {
+        const textCharIndex = alphabet.indexOf(charUpper); // Get the index of the text character
+        const keyCharIndex = alphabet.indexOf(key[keyIndex % key.length].toUpperCase()); // Get the index of the key character
+                    
+        let newIndex;
+        if (mode === 'encrypt') {
+        // Calculate the new index for encryption
+        newIndex = (textCharIndex + keyCharIndex) % alphabet.length;
+        } else if (mode === 'decrypt') {
+        // Calculate the new index for decryption
+        newIndex = (textCharIndex - keyCharIndex + alphabet.length) % alphabet.length;
+        }
+                    
+        // Get the new character from the alphabet and preserve the original case
+        const newChar = alphabet[newIndex];
+        result += isLower ? newChar.toLowerCase() : newChar;
+                    
+        // Move to the next character in the key
+        keyIndex++;
+        } else {
+        // If the character is not alphabetic, add it unchanged to the result
+        result += char;
+    }
+}
+                    
+// Return the final encrypted or decrypted result
+return result;
+}</textarea>
+            </div>
+
+            <!-- Section for displaying CSS code -->
+            <div class="code-section">
+                <h2>CSS Code - vigenere.css</h2>
+                <textarea id="css-code" class="form-control code-textarea" rows="10" readonly>
+/* Applies basic styling to the entire body of the webpage */
+body {
+    font-family: Arial, sans-serif; /* Sets the font for the text to Arial, with sans-serif as a fallback */
+    background-color: #f5f5f5; /* Sets a light gray background color for the entire page */
+    color: #333; /* Sets the text color to a dark gray for readability */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+}
+                                            
+/* Styles the main container for the cipher */
+.cipher-container {
+    max-width: 600px; /* Limits the width of the container */
+    margin: 30px auto; /* Centers the container horizontally and adds margin */
+    padding: 20px; /* Adds padding inside the container */
+    background-color: #fff; /* Sets the background color to white */
+    border-radius: 8px; /* Rounds the corners of the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around the container */
+}
+                    
+/* Styles the h1 heading */
+h1 {
+    text-align: center; /* Centers the heading text horizontally */
+    margin-bottom: 20px; /* Adds a margin of 20px below the heading */
+    color: #007BFF; /* Sets the heading color to a blue shade */
+}
+                    
+/* Styles form groups */
+.form-group {
+    margin-bottom: 15px; /* Adds space below each form group */
+}
+                    
+/* Styles labels for form controls */
+label {
+    display: block; /* Makes the label a block-level element */
+    margin-bottom: 5px; /* Adds space below the label */
+    font-weight: bold; /* Makes the label text bold */
+}
+                    
+/* Styles text areas and input fields */
+textarea, input[type="text"] {
+    width: 100%; /* Ensures the textarea/input takes up the full width of its container */
+    padding: 10px; /* Adds padding inside the textarea/input */
+    border: 1px solid #ddd; /* Adds a border with a light gray color */
+    border-radius: 4px; /* Rounds the corners of the textarea/input */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+                    
+/* Styles buttons */
+button {
+    background-color: #007BFF; /* Sets the background color of the button */
+    color: #fff; /* Sets the text color to white */
+    border: none; /* Removes default border */
+    padding: 10px 20px; /* Adds padding inside the button */
+    border-radius: 4px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    font-size: 16px; /* Sets the font size of the button text */
+    margin-right: 10px; /* Adds space between buttons */
+}
+                    
+/* Styles button on hover */
+button:hover {
+    background-color: #0056b3; /* Changes background color on hover */
+}
+                    
+/* Styles the result group */
+.result-group {
+    margin-top: 20px; /* Adds space above the result group */
+}
+                    
+/* Styles the code textareas */
+.code-textarea {
+    background-color: #f8f9fa; /* Sets a light background color for code textareas */
+    border: 1px solid #ced4da; /* Adds a border with a light gray color */
+    font-family: monospace; /* Uses a monospace font for code */
+    white-space: pre; /* Preserves whitespace and line breaks */
+}</textarea>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <p class="footer-text">&copy; 2024 Dys Defense. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="home.html" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About</a>
+                <a href="support.html" class="footer-link">Support</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

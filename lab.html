@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dys Defense - Lab</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="home.html"><img src="logo.png" alt="Logo" class="logo"></a>
+            <nav class="header-nav">
+                <a href="lab.html" class="nav-link">LAB</a>
+                <a href="tutorials.html" class="nav-link">TUTORIALS</a>
+                <a href="evaluator.html" class="nav-link">EVALUATOR</a>
+            </nav>
+            <a href="support.html" class="support-link">Support</a>
+        </div>
+    </header>
+    
+    <section class="intro-section py-4">
+            <h2 class="intro-title">Lab</h2>
+    </section>
+    <main>
+        <ul>
+            <li>
+                <h2>Atbash Cipher</h2>
+                <p>The Atbash Cipher is a classical cipher where the letters of the alphabet are reversed. The first
+                    letter becomes the last, the second becomes the second last, and so on. This simple substitution
+                    cipher was originally used in the Hebrew script but can be applied to any alphabet. Despite its
+                    simplicity, it provides an interesting twist on basic substitution techniques. <b>This technique
+                        only encrypts and decrypts letters.</b></p>
+                <button onclick="location.href='atbash.html'" class="btn btn-primary">Use Atbash Cipher</button>
+            </li>
+            <li>
+                <h2>Caesar Cipher</h2>
+                <p>The Caesar Cipher is a simple and ancient substitution cipher where each letter in the plaintext is
+                    shifted a certain number of places down or up the alphabet. Named after Julius Caesar, who used it
+                    in his private correspondence, this cipher is easy to understand and implement, making it a popular
+                    choice for introducing the concepts of encryption. <b>This technique only encrypts and decrypts
+                        letters.</b></p>
+                <button onclick="location.href='caesar.html'" class="btn btn-primary">Use Caesar Cipher</button>
+            </li>
+            <li>
+                <h2>Playfair Cipher</h2>
+                <p>The Playfair Cipher is a digraph substitution cipher that encrypts pairs of letters. Developed by
+                    Charles Wheatstone and named after Lord Playfair, this cipher uses a 5x5 matrix of letters to encode
+                    the plaintext. Each letter pair is substituted based on their positions in the matrix, providing a
+                    more complex encryption than simple substitution ciphers. <b>This technique encrypts and decrypts
+                        letters and numbers.</b></p>
+                <button onclick="location.href='playfair.html'" class="btn btn-primary">Use Playfair Cipher</button>
+            </li>
+            <li>
+                <h2>Rail Fence Cipher</h2>
+                <p>The Rail Fence Cipher is a transposition cipher that encrypts text by writing it in a zigzag pattern
+                    across multiple lines, or "rails," and then reading it off line by line. The plaintext is arranged
+                    diagonally across these rails, and the ciphertext is formed by concatenating characters from each
+                    rail. This method rearranges the characters rather than substituting them, making it a simple yet
+                    effective example of transposition encryption. <b>This technique encrypts and decrypts letters,
+                        numbers, and special characters.</b></p>
+                <button onclick="location.href='railfence.html'" class="btn btn-primary">Use Rail Fence Cipher</button>
+            </li>
+            <li>
+                <h2>Vigenère Cipher</h2>
+                <p>The Vigenère Cipher is a method of encrypting alphabetic text by using a simple form of
+                    polyalphabetic substitution. It employs a series of Caesar ciphers based on the letters of a
+                    keyword. Unlike the Caesar Cipher, the Vigenère Cipher uses a different shift for each letter in the
+                    plaintext, offering a more secure encryption method that was once thought to be unbreakable. <b>This
+                        technique only encrypts and decrypts letters.</b></p>
+                <button onclick="location.href='vigenere.html'" class="btn btn-primary">Use Vigenère Cipher</button>
+            </li>
+            <li>
+                <h2>XOR Cipher</h2>
+                <p>The XOR Cipher is a simple symmetric encryption algorithm where each character in the plaintext is
+                    XORed with a key to produce the ciphertext. This technique relies on the bitwise XOR operation,
+                    which can be easily implemented in various programming languages. It serves as a fundamental example
+                    of symmetric encryption and is useful for learning about basic encryption techniques and bitwise
+                    operations. <b>This technique only encrypts and decrypts letters.</b></p>
+                <button onclick="location.href='xor.html'" class="btn btn-primary">Use XOR Cipher</button>
+            </li>
+        </ul>
+    </main>
+    
+    <footer class="py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <p class="footer-text">&copy; 2024 Dys Defense. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="home.html" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About</a>
+                <a href="support.html" class="footer-link">Support</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
