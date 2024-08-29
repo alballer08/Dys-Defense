@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dys Defense - Vigenere Cipher</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="vigenere.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="shield.png">
+</head>
+
+<body>
+    <header class="py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="dashboard.html"><img src="logo.png" alt="Logo" class="logo"></a>
+            <nav class="header-nav">
+                <a href="lab.html" class="nav-link">LAB</a>
+                <a href="tutorials.html" class="nav-link">TUTORIALS</a>
+                <a href="evaluator.html" class="nav-link">EVALUATOR</a>
+            </nav>
+            <a href="support.html" class="support-link">Support</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="cipher-container">
+            <h1>Vigenère Cipher</h1>
+            <form id="vigenere-form">
+                <div class="form-group">
+                    <label for="vigenere-text">Text (Letters):</label>
+                    <textarea id="vigenere-text" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="vigenere-key">Key (Word or Phrase):</label>
+                    <input type="text" id="vigenere-key" class="form-control" rows="3" required>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary" onclick="encryptVigenere()">Encrypt</button>
+                    <button type="button" class="btn btn-primary" onclick="decryptVigenere()">Decrypt</button>
+                </div>
+            </form>
+            <div class="result-container">
+                <h2>Result:</h2>
+                <textarea id="vigenere-result" class="form-control" rows="3" readonly></textarea>
+                <button type="button" class="btn2 copy-btn" onclick="copyText()">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+            <button type="button" class="btn btn-danger clear-button" onclick="clearText()">Clear</button>
+        </div>
+    </main>
+
+    <footer class="py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <p class="footer-text">&copy; 2024 Dys Defense. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="dashboard.html" class="footer-link">Dashboard</a>
+                <a href="support.html" class="footer-link">Support</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
