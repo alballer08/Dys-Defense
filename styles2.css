@@ -1,0 +1,392 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Header Styles */
+header {
+    background-color: #054e98; /* Dark blue header */
+    color: #ffffff; /* White text */
+    padding: 10px 0; /* Adjust padding as needed */
+    position: relative; /* Position relative for absolute positioning of nav */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Space between logo and support link */
+    align-items: center;
+    max-width: 1200px; /* Set a max-width for better alignment */
+    margin: 0 auto; /* Center align the container */
+    padding: 0 15px; /* Add padding to avoid content touching edges */
+    position: relative; /* Position relative for absolute positioning of nav */
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* General Styles for Logo */
+.logo {
+    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Maintain aspect ratio */
+    max-height: 50px; /* Adjust to fit your design */
+}
+
+.header-nav {
+    position: absolute; /* Position it absolutely within the header */
+    left: 50%; /* Start from the center horizontally */
+    transform: translateX(-50%); /* Shift left by half of its own width to center it */
+    display: flex;
+    justify-content: center; /* Center align the nav links within this container */
+    flex: 1; /* Take up the remaining space */
+}
+
+.nav-link {
+    color: black; /* White text */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Space between links */
+    font-size: 16px;
+    font-weight:bold;
+}
+
+.nav-link:hover {
+    text-decoration: none; /* Underline on hover */
+    color:white;
+}
+
+/* Default spacing for navigation links */
+.nav-link {
+    margin: 0 15px; /* Default margin */
+}
+
+.logo {
+    height: 50px;
+}
+
+#features-overview {
+    background-color: #e3f2fd; /* Light blue background */
+    height: 100vh;
+}
+#features-overview .col-md-4 img {
+    height: 200px; /* Set a consistent height for all images */
+    width: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Ensures the image covers the entire area */
+}
+
+#features-overview .col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+#features-overview .btn {
+    margin-top: auto; /* Ensures buttons align at the bottom */
+}
+
+.support-link {
+    color: black; /* White text */
+    text-decoration: none; /* Remove underline */
+    margin: 0 10px; /* Space between links */
+    font-size: 16px;
+}
+
+.support-link:hover {
+    text-decoration: none; /* Underline on hover */
+    color:white;
+}
+h1, h2, h5 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Welcome Section to Take Up Full Page Height */
+#welcome {
+    background-image: url('background-about.png'); /* Path to your background image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+    color: #ffffff; /* Ensure text is visible against the background */
+    height: 100vh; /* Take up the full viewport height */
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center align text */
+}
+
+#welcome h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#welcome p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+#welcome img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0; /* Adjust margin as needed */
+}
+
+#welcome .btn-primary {
+    background-color: #12123E;
+    border-color: #12123E;
+    font-size: 20px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+#welcome .btn-primary:hover {
+    background-color: #0e0e35;
+}
+
+
+/* What is This Website Section */
+/* About Section */
+#about {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.0em;
+}
+
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+#about strong {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* FAQ Section */
+#faq {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 0; /* Remove default padding */
+    min-height: 100vh; /* Make it take up the whole viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FAQ Section */
+#faq {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 0; /* Remove default padding */
+    min-height: 100vh; /* Make it take up the whole viewport height */
+}
+
+#faq h2 {
+    font-size: 2.5rem; /* Increase font size for the heading */
+    margin-bottom: 2rem; /* Add space below the heading */
+}
+
+.faq-item {
+    border-bottom: 1px solid #444; /* Line between items */
+}
+
+.faq-header {
+    color: inherit; /* Keeps the default text color */
+    text-decoration: none; /* Removes the underline */
+}
+
+.faq-header:hover {
+    color: inherit; /* Prevents color change on hover */
+    text-decoration: none; /* Prevents underline on hover */
+}
+
+.faq-header button {
+    font-size: 1.25rem; /* Larger font size for the button text */
+    color: #fff; /* White text for button */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Full width of the card */
+    padding: 1rem; /* Padding for the button */
+    border: none; /* Remove border from the button */
+    background: none; /* Remove background */
+    display: flex;
+    justify-content: space-between; /* Space between text and toggle icon */
+    align-items: center;
+}
+
+.faq-body {
+    padding: 1.5rem; /* Padding inside the body */
+}
+
+.faq-body p {
+    margin: 0; /* Remove margin from paragraphs inside the body */
+}
+
+/* Toggle Icon Animation */
+.toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#toggleButton {
+    font-size: 24px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+#toggleButton:active {
+    transform: scale(0.95);
+}
+
+/* Styles for opened and closed states */
+.collapse.show ~ .faq-header .toggle-icon::before {
+    content: "-"; /* Minus sign when open */
+}
+
+.collapse:not(.show) ~ .faq-header .toggle-icon::before {
+    content: "+"; /* Plus sign when closed */
+}
+
+.btn-link {
+    color: #12123E;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #0e0e35;
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #003366; /* Dark blue background matching header */
+    color: #ffffff; /* White text */
+    padding: 20px 0; /* Top and bottom padding */
+    text-align: center; /* Center align text for small screens */
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-link {
+    color: #ffffff; /* White text */
+    text-decoration: none; /* Remove underline */
+    margin: 0 10px; /* Space between links */
+    font-size: 16px;
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Container2 Styles */
+.container2 {
+    max-width: 1200px; /* Set a max-width for better alignment */
+    margin: 0 auto; /* Center align the container */
+    padding: 0 15px; /* Add padding to avoid content touching edges */
+    box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+/* Responsive adjustments for container2 */
+@media (max-width: 768px) {
+    .container2 {
+        padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .container2 {
+        padding: 0 5px; /* Further reduce padding for very small screens */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #welcome h2 {
+        font-size: 28px;
+    }
+
+    #about h2, #faq h2 {
+        font-size: 24px;
+    }
+}
+
+/* Media Queries for Different Logo Images */
+@media (max-width: 768px) {
+    .logo {
+        content: url('shield.png'); /* Swap to medium logo for smaller screens */
+        max-height: 40px; /* Adjust as needed */
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        content: url('shield.png'); /* Swap to small logo for extra-small screens */
+        max-height: 30px; /* Adjust as needed */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1000px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+    
+    ul {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        margin: 0; /* Remove margin */
+    }
+
+    li {
+        margin-bottom: 20px; /* Add space between stacked items */
+        flex: 1 1 100%; /* Full width on smaller screens */
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-link {
+        margin: 0 10px; /* Reduced margin for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-link {
+        margin: 0 5px; /* Further reduced margin for very small screens */
+    }
+}
